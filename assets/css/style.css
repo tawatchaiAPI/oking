@@ -1,0 +1,446 @@
+/* Reset และสไตล์พื้นฐาน */
+html, body {
+  display: grid;
+  height: 100%;
+  width: 100%;
+  place-items: center;
+  background: #f2f2f2;
+  font-family: 'Kanit', sans-serif;
+  line-height: 1.6;
+}
+
+::selection {
+  background: #4158d0;
+  color: #fff;
+}
+
+/* สไตล์ตารางทั่วไป */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.custom-table thead th {
+  background-color: #BAD2FF; /* สีน้ำเงินสำหรับหัวตาราง */
+  color: black;
+  padding: 12px;
+  text-align: left;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* แถวคู่สีเทาอ่อน */
+}
+
+.custom-table tbody tr:nth-child(odd) {
+  background-color: #ffffff; /* แถวคี่สีขาว */
+}
+
+.custom-table tbody tr:hover {
+  background-color: #ddd; /* สีเทาเมื่อเมาส์ชี้ */
+}
+
+.custom-table th, .custom-table td {
+  padding: 10px;
+}
+
+/* สไตล์สำหรับตารางแนวตั้งทันที */
+.stacked-item {
+  display: block; /* เปลี่ยน td เป็น block */
+  width: 100%;
+  border: none;
+  position: relative;
+  padding-left: 50%;
+}
+
+.stacked-item:before {
+  content: attr(data-label); /* ใช้ data-label เป็นหัวข้อ */
+  position: absolute;
+  left: 8px;
+  width: 45%;
+  padding-right: 10px;
+  white-space: nowrap;
+  font-weight: bold;
+  color: #333;
+}
+
+.message-cell {
+  word-wrap: break-word;
+}
+
+.action-cell {
+  text-align: right;
+}
+
+/* สไตล์ปุ่ม */
+.btn-send {
+  background-color: #02046F; /* สีน้ำเงิน */
+  border: none;
+  padding: 6px 12px;
+  color: white;
+  border-radius: 4px;
+}
+
+.btn-send:hover {
+  background-color: #0056b3; /* สีน้ำเงินเข้มเมื่อชี้ */
+  animation: pulse 0.5s infinite;
+}
+
+.btn-edit {
+  background-color: #ffc107; /* สีเหลือง */
+  border: none;
+  padding: 6px 12px;
+  color: black;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.btn-edit:hover {
+  background-color: #e0a800; /* สีเหลืองเข้มเมื่อชี้ */
+  animation: pulse 0.5s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* สไตล์สำหรับ pagination */
+#pagination {
+  font-size: 14px;
+}
+
+#pagination button {
+  padding: 5px 10px;
+}
+
+/* สไตล์สำหรับ modal */
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 400px;
+}
+
+.modal-content input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+/* สไตล์สำหรับฟอร์ม */
+.container, .wrapper {
+  width: 350px;
+  max-width: 400px;
+  margin: 50px auto;
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 15px 20px rgba(0, 0, 0, 0.1);
+}
+
+.wrapper .title {
+  font-size: 35px;
+  font-weight: 600;
+  text-align: center;
+  line-height: 100px;
+  color: #fff;
+  user-select: none;
+  border-radius: 15px 15px 0 0;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+}
+
+form {
+  padding: 10px 30px 50px 30px;
+}
+
+.field {
+  width: 100%;
+  margin: 10px 0;
+  position: relative;
+  height: 50px;
+  margin-top: 40px;
+}
+
+.field input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  height: 100%;
+  outline: none;
+  padding-left: 20px;
+  border-radius: 25px;
+  transition: all 0.3s ease;
+}
+
+.field input:focus,
+.field input:valid {
+  border-color: #4158d0;
+}
+
+.field label {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  color: #999;
+  font-weight: 400;
+  font-size: 17px;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.3s ease;
+}
+
+.field input:focus + label,
+.field input:not(:placeholder-shown) + label,
+.field input:valid + label {
+  top: 0;
+  left: 5px;
+  font-size: 12px;
+  color: #4158d0;
+  background: #fff;
+  transform: translateY(-50%);
+}
+
+.field input[type="submit"] {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 20px;
+  font-weight: 500;
+  background: linear-gradient(-135deg, #c850c0, #4158d0);
+  transition: all 0.3s ease;
+}
+
+.field input[type="submit"]:active {
+  transform: scale(0.95);
+}
+
+form .content {
+  display: flex;
+  width: 100%;
+  height: 50px;
+  font-size: 16px;
+  align-items: center;
+  justify-content: space-around;
+}
+
+form .content .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+form .content input {
+  width: 15px;
+  height: 15px;
+  background: red;
+}
+
+form .content label {
+  color: #262626;
+  user-select: none;
+  padding-left: 5px;
+}
+
+form .signup-link {
+  color: #262626;
+  margin-top: 20px;
+  text-align: center;
+}
+
+form .pass-link a,
+form .signup-link a {
+  color: #4158d0;
+  text-decoration: none;
+}
+
+form .pass-link a:hover,
+form .signup-link a:hover {
+  text-decoration: underline;
+}
+
+/* สไตล์สำหรับ select */
+.select-wrapper {
+  position: relative;
+  width: 100%;
+  margin: 10px 0;
+}
+
+.custom-select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  font-size: 16px;
+  color: #333;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+.custom-select option {
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+}
+
+.custom-select:hover {
+  border-color: #999;
+}
+
+/* สไตล์เพิ่มเติม */
+h6 {
+  color: #333;
+  margin-top: 20px;
+}
+
+.error {
+  color: red;
+}
+
+.mb-4 {
+  overflow-x: auto;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+#editMessage {
+  min-height: 100px;
+  font-size: 14px;
+}
+
+#logTable { display: table-row-group !important; }
+
+.menu-logo {
+  width: 70px;
+  height: 70px;
+  margin-right: 10px;
+  object-fit: contain;
+}
+
+.btn {
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+/* สไตล์สำหรับ .table-group */
+.table-group {
+  background-color: #FF6600; /* สีส้ม */
+  --bs-table-striped-bg: #FFD1BA; /* สีพื้นหลังแถวที่มีลาย */
+}
+
+/* ใช้ตัวแปร Bootstrap (ถ้ามี) */
+.table-group th {
+  color: #FFFFFF; /* สีขาวสำหรับหัวตาราง */
+}
+
+.table-group td {
+  background-color: azure;
+}
+
+/* ใช้ตัวแปร --bs-table-striped-bg สำหรับแถวที่มีลาย */
+.table-group tbody tr:nth-child(even) {
+  background-color: var(--bs-table-striped-bg, #FFD1BA); /* ใช้สี #FFD1BA สำหรับแถวคู่ */
+}
+
+.evendiv {
+  text-align: center; /* จัดข้อความกึ่งกลางแนวนอน */
+  background-color: #0000ff87; /* สีน้ำเงินโปร่งแสง */
+  color: #fff; /* สีขาวสำหรับข้อความ */
+  height: 50px; /* ความสูง 50px */
+  display: flex; /* ใช้ flex เพื่อจัดกึ่งกลางแนวตั้ง */
+  justify-content: center; /* กึ่งกลางแนวนอน */
+  align-items: center; /* กึ่งกลางแนวตั้ง */
+  font-family: 'Kanit', sans-serif;
+  font-weight: 400;
+}
+
+.chat-container-bot {
+  width: 350px; /* เพิ่มความกว้างเล็กน้อย */
+  margin: 40px auto; /* เพิ่มระยะห่างจากขอบ */
+  padding: 20px; /* เพิ่ม padding */
+  border-radius: 10px; /* มุมโค้ง */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* เพิ่มเงา */
+  background-color: #ffffff; /* พื้นหลังสีขาว */
+  font-family: Arial, sans-serif; /* ฟอนต์สะอาดตา */
+}
+.chat-container-bot h3 {
+  margin: 0 0 15px 0; /* ระยะห่างหัวข้อ */
+  color: #333; /* สีเข้มขึ้น */
+  text-align: center; /* จัดกลาง */
+}
+.message-input-bot {
+  width: 100%;
+  height: 120px; /* เพิ่มความสูง */
+  padding: 10px; /* padding ภายใน */
+  margin-bottom: 15px; /* ระยะห่างด้านล่าง */
+  resize: vertical;
+  border: 1px solid #ddd; /* ขอบบางๆ */
+  border-radius: 5px; /* มุมโค้ง */
+  font-size: 14px; /* ขนาดฟอนต์ */
+  box-sizing: border-box; /* รวม padding ในขนาด */
+  transition: border-color 0.3s; /* เอฟเฟกต์เมื่อโฟกัส */
+}
+.message-input-bot:focus {
+  border-color: #4CAF50; /* สีขอบเมื่อโฟกัส */
+  outline: none; /* ลบขอบโฟกัสเริ่มต้น */
+}
+.send-button-bot {
+  width: 100%;
+  padding: 10px; /* padding ปุ่ม */
+  background-color: #4CAF50; /* สีเขียว */
+  color: white;
+  border: none;
+  border-radius: 5px; /* มุมโค้ง */
+  cursor: pointer;
+  font-size: 16px; /* ขนาดฟอนต์ */
+  transition: background-color 0.3s; /* เอฟเฟกต์เปลี่ยนสี */
+}
+.send-button-bot:hover {
+  background-color: #45a049; /* สีเข้มขึ้นเมื่อ hover */
+}
+.chat-container-bot p {
+  margin: 10px 0; /* ระยะห่างข้อความกลุ่ม */
+  color: #666; /* สีเทาเข้ม */
+  font-size: 14px;
+}
+#status {
+  margin-top: 10px;
+  color: #333;
+  font-size: 13px;
+  text-align: center;
+}
+
+tr {
+  border-color: inherit;
+  border-style: solid;
+  /* border-width: 0;*/
+}

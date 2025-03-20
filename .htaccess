@@ -1,0 +1,16 @@
+# เปิดการใช้งาน rewrite engine
+RewriteEngine On
+
+# Redirect ทุกคำขอไป login.php ยกเว้นไฟล์ที่ระบุ
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !^/login\.php [NC]
+RewriteCond %{REQUEST_URI} !^/register\.php [NC]
+RewriteCond %{REQUEST_URI} !^/logout\.php [NC]
+RewriteCond %{REQUEST_URI} !^/assets/ [NC]
+RewriteRule ^(.*)$ /login.php [L]
+
+# ป้องกันการเข้าถึงไฟล์ .htaccess
+<Files ".htaccess">
+    Require all denied
+</Files>
